@@ -1,0 +1,12 @@
+--- src/mailsend.c.orig	2005-02-02 22:59:16.399350264 +0900
++++ src/mailsend.c	2005-02-02 22:59:36.710262536 +0900
+@@ -439,8 +439,7 @@
+     if (ptr1 != (char*)NULL) {
+       *ptr1 = '\0';
+     }
+-    fprintf(fp2, "%s %s\"%s\".\n\t%s\n", IN_REPLY_FIELD, REPLY_MESSAGE,
+-	    date_buff, message_buff);
++    fprintf(fp2, "%s %s\n", IN_REPLY_FIELD, message_buff);
+   }
+ 
+   /*

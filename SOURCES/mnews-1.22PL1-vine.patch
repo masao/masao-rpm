@@ -1,0 +1,36 @@
+diff -uNr build.orig/Makefile.src build/Makefile.src
+--- build.orig/Makefile.src	Wed Dec 23 02:12:29 1998
++++ build/Makefile.src	Tue Sep 21 16:22:01 1999
+@@ -321,11 +321,11 @@
+ 	${CC} ${C_FLAG2} -c ${SRC_DIR}/mimepart.c
+ 
+ install: all
+-	cp ${EXE} ${BIN_DIR}
+-	chmod 755 ${BIN_DIR}/${EXE}
++	cp ${EXE} ${DESTDIR}${BIN_DIR}
++	chmod 755 ${DESTDIR}${BIN_DIR}/${EXE}
+ 	@if [ -f default-domain ] ; then \
+-		cp default-domain ${LIB_DIR} ; \
+-		chmod 644 ${LIB_DIR}/default-domain ; \
++		cp default-domain ${DESTDIR}${LIB_DIR} ; \
++		chmod 644 ${DESTDIR}${LIB_DIR}/default-domain ; \
+ 	fi
+ 	@if [ -f "/sbin/i860" ] ; then \
+ 		"/sbin/i860" ; \
+@@ -335,13 +335,9 @@
+ 			chmod g+s ${BIN_DIR}/${EXE} ; \
+ 		fi ; \
+ 	fi
+-	@if [ -d ${MAN_DIR}/japanese/man1 ] ; then \
+-		cp ${DOC_DIR}/mnews.1 ${MAN_DIR}/japanese/man1 ; \
+-		chmod 644 ${MAN_DIR}/japanese/man1/mnews.1 ; \
+-	fi
+-	@if [ -d ${MAN_DIR}/man1 ] ; then \
+-		cp ${DOC_DIR}/mnews.1 ${MAN_DIR}/man1 ; \
+-		chmod 644 ${MAN_DIR}/man1/mnews.1 ; \
++	@if [ -d ${DESTDIR}${MAN_DIR}/ja/man1 ] ; then \
++		cp ${DOC_DIR}/mnews.1 ${DESTDIR}${MAN_DIR}/ja/man1 ; \
++		chmod 644 ${DESTDIR}${MAN_DIR}/ja/man1/mnews.1 ; \
+ 	fi
+ 
+ help:

@@ -1,0 +1,14 @@
+--- mnews-1.22PL1/compat/compat.h~	Tue Dec  7 02:19:00 1999
++++ mnews-1.22PL1/compat/compat.h	Fri Feb 25 15:23:28 2000
+@@ -44,7 +44,11 @@
+ #if	defined(MSDOS) && !defined(__GO32__)
+ typedef	long	CASTPTR;
+ #else	/* !(MSDOS || !__GO32__) */
++#ifdef __alpha__
++typedef	long	CASTPTR;
++#else
+ typedef	int	CASTPTR;
++#endif
+ #endif	/* !(MSDOS || !__GO32__) */
+ #endif	/* !ALPHA */
+ 

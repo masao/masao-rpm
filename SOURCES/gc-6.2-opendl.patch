@@ -1,0 +1,55 @@
+--- gc6.2/Makefile.am.dl	2003-06-13 13:25:35.000000000 -0500
++++ gc6.2/Makefile.am	2003-09-11 14:15:56.000000000 -0500
+@@ -55,7 +55,7 @@
+ 
+ # Include THREADLIBS here to ensure that the correct versions of
+ # linuxthread semaphore functions get linked:
+-libgc_la_LIBADD = @addobjs@ $(THREADLIBS)
++libgc_la_LIBADD = @addobjs@ $(THREADLIBS) $(EXTRA_TEST_LIBS)
+ libgc_la_DEPENDENCIES = @addobjs@
+ libgc_la_LDFLAGS = -version-info 1:2:0
+ 
+@@ -91,9 +91,9 @@
+ ##     are included in the distribution
+ # gctest_OBJECTS = test.o
+ gctest_SOURCES = tests/test.c
+-gctest_LDADD = ./libgc.la $(THREADLIBS) $(EXTRA_TEST_LIBS)
++gctest_LDADD = ./libgc.la 
+ test_cpp_SOURCES = tests/test_cpp.cc
+-test_cpp_LDADD = ./libgc.la ./libgccpp.la $(THREADLIBS) $(EXTRA_TEST_LIBS)
++test_cpp_LDADD = ./libgc.la ./libgccpp.la 
+ 
+ TESTS = gctest $(extra_checks)
+ 
+--- gc6.2/Makefile.in.dl	2003-06-21 17:47:00.000000000 -0500
++++ gc6.2/Makefile.in	2003-09-11 14:18:46.000000000 -0500
+@@ -188,7 +188,7 @@
+ 
+ # Include THREADLIBS here to ensure that the correct versions of
+ # linuxthread semaphore functions get linked:
+-libgc_la_LIBADD = @addobjs@ $(THREADLIBS)
++libgc_la_LIBADD = @addobjs@ $(THREADLIBS) $(EXTRA_TEST_LIBS)
+ libgc_la_DEPENDENCIES = @addobjs@
+ libgc_la_LDFLAGS = -version-info 1:2:0
+ 
+@@ -199,7 +199,7 @@
+ 
+ 
+ libgccpp_la_SOURCES = gc_cpp.cc
+-libgccpp_la_LIBADD = $(THREADLIBS)
++libgccpp_la_LIBADD = $(THREADLIBS) $(EXTRA_TEST_LIBS)
+ libgccpp_la_LDFLAGS = -version-info 1:2:0
+ 
+ AM_CXXFLAGS = @GC_CFLAGS@
+@@ -212,9 +212,9 @@
+ 
+ # gctest_OBJECTS = test.o
+ gctest_SOURCES = tests/test.c
+-gctest_LDADD = ./libgc.la $(THREADLIBS) $(EXTRA_TEST_LIBS)
++gctest_LDADD = ./libgc.la 
+ test_cpp_SOURCES = tests/test_cpp.cc
+-test_cpp_LDADD = ./libgc.la ./libgccpp.la $(THREADLIBS) $(EXTRA_TEST_LIBS)
++test_cpp_LDADD = ./libgc.la ./libgccpp.la 
+ 
+ TESTS = gctest $(extra_checks)
+ 

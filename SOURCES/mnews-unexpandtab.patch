@@ -1,0 +1,10 @@
+--- build/config.sh.bak	2001-02-05 01:14:45.000000000 +0900
++++ build/config.sh	2005-02-02 13:13:27.708763432 +0900
+@@ -1172,6 +1172,7 @@
+ fi
+ 
+ $CPP -D$ARCH $CONS_OPT $MOD_OPT temp.c | $SED -e "s/_CONS_OPT_/$CONS_OPT/g" \
++	-e "s/^        /	/g" \
+ 	-e "s/_CONF_OPT_/$CONF_OPT/g" -e "s/_MOD_OPT_/$MOD_OPT/g" \
+ 	-e "s/_NET_OPT_/$NET_OPT/g" -e "s/__ARCH__/$ARCH/g" \
+ 	-e "s@__CC__@$CC@g" \
