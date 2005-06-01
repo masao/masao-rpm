@@ -1,0 +1,11 @@
+--- src/mnews.h.orig	2005-02-02 22:59:49.000000000 +0900
++++ src/mnews.h	2005-06-01 11:51:48.345415976 +0900
+@@ -133,7 +133,7 @@
+ #endif	/* REF_SORT */
+   short		month;				/* 月			*/
+   short		date;				/* 日			*/
+-  short		lines;				/* 行数			*/
++  int		lines;				/* 行数			*/
+ };
+ 
+ typedef enum {
