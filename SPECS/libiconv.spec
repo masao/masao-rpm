@@ -109,13 +109,20 @@ fi
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING.LIB ChangeLog DESIGN NEWS NOTES PORTS README README.win32
+%doc AUTHORS COPYING.LIB ChangeLog DESIGN NEWS NOTES PORTS README
+%{prefix}/lib/libcharset.la
+%{prefix}/lib/libcharset.so
+%{prefix}/lib/libcharset.so.1
+%{prefix}/lib/libcharset.so.1.*
 %{prefix}/lib/libiconv.la
 %{prefix}/lib/libiconv.so
 %{prefix}/lib/libiconv.so.2
 %{prefix}/lib/libiconv.so.2.*
-%{prefix}/lib/libiconv_plug.so
+%{prefix}/lib/preloadable_libiconv.so
 #%{prefix}/include/iconv.h
+%{prefix}/include/libcharset.h
+%{prefix}/include/localcharset.h
 #%{_mandir}/man3/iconv.3*
 #%{_mandir}/man3/iconv_close.3*
 #%{_mandir}/man3/iconv_open.3*
+%{_mandir}/man3/iconvctl.3*
