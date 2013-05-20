@@ -4,7 +4,7 @@
  fi
  
  $CPP -D$ARCH $CONS_OPT $MOD_OPT temp.c | $SED -e "s/_CONS_OPT_/$CONS_OPT/g" \
-+	-e "s/^        /	/g" \
++	-e "s/^ /	/g" \
  	-e "s/_CONF_OPT_/$CONF_OPT/g" -e "s/_MOD_OPT_/$MOD_OPT/g" \
  	-e "s/_NET_OPT_/$NET_OPT/g" -e "s/__ARCH__/$ARCH/g" \
  	-e "s@__CC__@$CC@g" \

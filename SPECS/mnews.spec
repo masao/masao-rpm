@@ -2,19 +2,23 @@ Summary: mnews - mini news reader
 Summary(ja): mnews - ミニ・ニュースリーダ
 Name: mnews
 Version: 1.22PL7
-Release: m2
+Release: m3
 Group: Applications/Networking
 License: distributable
 Source0: %{name}122PL7.tar.gz 
 Patch0: %{name}-1.22-ignore.patch 
 Patch1: %{name}-1.22PL1-vine.patch 
-Patch2: %{name}-alpha.diff
+# Patch2: %{name}-alpha.diff
 Patch3: %{name}-unexpandtab.patch
 Patch4: %{name}-1.22PL7-rfc2822.patch
 Patch5: %{name}-line.patch
+Patch6: %{name}-compat-castptr.patch
+Patch7: %{name}1.22PL7-unicode-20080202.patch
+Patch8: %{name}-unicode-fix.patch
+Patch9: %{name}-unicode-fix2.patch
 BuildRoot: %{_tmppath}/%{name}-root
 Vendor: Masao Takaku
-Distribution: Vine Linux
+Distribution: Derived from Vine Linux
 
 %description
 mnews is mini news/mail reader.
@@ -27,10 +31,14 @@ mnews は小型化、高速化、そして簡単に使用できることを目標に開発されました。
 %setup
 %patch0 -b .ignore
 %patch1 -b .vine
-%patch2 -p1 -b .alpha
+# %patch2 -p1 -b .alpha
 %patch3 -b .unexpandtab
 %patch4 -b .rfc2822
 %patch5 -b .line
+%patch6 -b .castptr
+%patch7 -p1 -b .unicode
+%patch8 -b .ufix
+%patch9 -b .ufix2
 
 %build
 cd build
@@ -76,13 +84,13 @@ y
 n
 n
 n
--DCTRL_L -DCOMPLETION -DREF_SORT -DLARGE -DDISPLAY_CTRL -DINET6 -DBUILTIN_MMH -DCOLOR -DNNTP_AUTH -DSUPPORT_X0201 -DTRI -DUSE_NLINK -DXOVER
+-DCTRL_L -DCOMPLETION -DREF_SORT -DLARGE -DDISPLAY_CTRL -DINET6 -DBUILTIN_MMH -DCOLOR -DNNTP_AUTH -DSUPPORT_X0201 -DTRI -DUSE_NLINK -DXOVER -DUNICODE
 domain.name
-4
-4
+5
+5
 1
-4
-4
+5
+5
 1
 1
 1
@@ -125,9 +133,13 @@ rm -rf %{buildroot}
 %{_bindir}/mnews
 %{_mandir}/ja/man1/mnews.1*
 %dir %{_libdir}/mnews
-#%config %{_libdir}/mnews/default-domain
+%config %{_libdir}/mnews/default-domain
 
 %changelog
+* Mon May 20 2013 <masao@slis.tsukuba.ac.jp>
+- 1.22PL7-m3
+- add a patch for utf-8 supports.
+
 * Wed Jun 01 2005 <masao@nii.ac.jp>
 - 1.22PL7-m2:
 - add a patch for correct line number.

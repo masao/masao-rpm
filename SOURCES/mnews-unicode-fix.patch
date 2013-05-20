@@ -1,0 +1,11 @@
+--- kanjilib/kanjilib.c.orig	2013-05-20 12:19:37.000000000 +0900
++++ kanjilib/kanjilib.c	2013-05-20 12:21:30.000000000 +0900
+@@ -1799,7 +1799,7 @@
+     break;
+ #ifdef	UNICODE
+   case UTF8_CODE:
+-    str_to_utf8(buff2, buff1);
++    euc_to_utf8(buff2, buff1);
+     break;
+ #endif
+   default:

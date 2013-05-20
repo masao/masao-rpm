@@ -1,0 +1,11 @@
+--- build/config.sh.orig	2013-05-20 13:06:59.000000000 +0900
++++ build/config.sh	2013-05-20 13:07:28.000000000 +0900
+@@ -36,7 +36,7 @@
+ 
+ SITE_DEPEND="site_dep.h"
+ MAKEFILE="Makefile"
+-K_STRING="ASCII_CODE JIS_CODE SJIS_CODE EUC_CODE UNKNOWN_CODE"
++K_STRING="ASCII_CODE JIS_CODE SJIS_CODE EUC_CODE UTF8_CODE UNKNOWN_CODE"
+ 
+ rm -f Y_or_n y_or_N K_code echotmp
+ 

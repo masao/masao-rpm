@@ -1,0 +1,11 @@
+--- compat/compat.h.orig	2003-09-29 00:22:17.000000000 +0900
++++ compat/compat.h	2013-05-19 14:12:59.000000000 +0900
+@@ -47,7 +47,7 @@
+ #if	defined(MSDOS) && !defined(__GO32__)
+ typedef	long	CASTPTR;
+ #else	/* !(MSDOS || !__GO32__) */
+-typedef	int	CASTPTR;
++typedef	long CASTPTR;
+ #endif	/* !(MSDOS || !__GO32__) */
+ #endif	/* !ALPHA */
+ 
