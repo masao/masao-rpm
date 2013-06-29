@@ -2,7 +2,7 @@ Summary: mnews - mini news reader
 Summary(ja): mnews - ミニ・ニュースリーダ
 Name: mnews
 Version: 1.22PL7
-Release: m4
+Release: 5m
 Group: Applications/Networking
 License: distributable
 Source0: %{name}122PL7.tar.gz 
@@ -16,7 +16,7 @@ Patch6: %{name}-compat-castptr.patch
 Patch7: %{name}1.22PL7-unicode-20080202.patch
 Patch8: %{name}-unicode-fix.patch
 Patch9: %{name}-unicode-fix2.patch
-Patch10: %{name}-unicode-wavedash.patch
+Patch10: %{name}-unicode-dash.patch
 BuildRoot: %{_tmppath}/%{name}-root
 Vendor: Masao Takaku
 Distribution: Derived from Vine Linux
@@ -40,7 +40,7 @@ mnews は小型化、高速化、そして簡単に使用できることを目標に開発されました。
 %patch7 -p1 -b .unicode
 %patch8 -b .ufix
 %patch9 -b .ufix2
-%patch10 -b .wavedash
+%patch10 -b .dash
 
 %build
 cd build
